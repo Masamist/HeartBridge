@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 import UserIcon from '../UerIcon/UserIcon';
 
 import style from "./style";
-// import ArrowLeft from "../ArrowLeft/ArrowLeft";
+import ArrowLeft from "../ArrowLeft/ArrowLeft";
 
 const Message = props => {
   const { userId, uri, message, onPress } = props;
@@ -14,8 +14,10 @@ const Message = props => {
 
   return (
     <View style={style.container}>
-      <View style={style.timeContainer}>
-        {/* <ArrowLeft style={style.arrowLeft} /> */}
+      <View style={style.leftContainer}>
+        <View style={style.arrowLeft}>
+          <ArrowLeft />
+        </View>
         <UserIcon uri={require('../../assets/images/mum.png')} />
         <Header 
           title={'3:15pm'} 
@@ -28,28 +30,22 @@ const Message = props => {
           color={'#EB5757'} 
         />
       </View>
-      <View>
+      <View style={style.rightContainer}>
         <Header 
           title={'Sarah'} 
           type={4} 
           color={'#333333'} 
         />
         <View style={style.messageContainer}>
-          <View>
-            <Image 
-            resizeMode={'cover'} 
-            source={imageSource} 
-            style={style.image} />
-          </View>
-          <View style={style.txtContainer}>
-            <View style={style.message}>
-              <Header 
-                title={props.message + ' family'} 
-                type={4} 
-                color={'#828282'} 
-              />
-            </View>
-          </View>
+          <Image 
+          resizeMode={'cover'} 
+          source={imageSource} 
+          style={style.image} />
+          <Header 
+            title={props.message} 
+            type={4} 
+            color={'#828282'}
+          />
         </View>
       </View>
     </View>

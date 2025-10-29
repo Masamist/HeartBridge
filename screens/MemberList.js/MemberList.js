@@ -8,19 +8,17 @@ import Tab from "../../components/Tab/Tab";
 import Input from "../../components/Input/Input";
 import Member from "../../components/Member/Member";
 import Message from "../../components/Message/Message";
+import { Screen } from "react-native-screens";
 
 import style from "./style";
 import globalStyle from '../../assets/styles/globalStyle';
-import { Screen } from "react-native-screens";
 
-const Home = () => {
+
+const MemberList = () => {
   return (
     <View style={[globalStyle.backgroundWhite, globalStyle.flex]}>
-      <ScreenHeader title="Daily Diary" />
-      <Header title="Welcome to Home Screen" type={1} />
-      <Tab tabId={1} title={'Today'} isInactive={false} onPress={() => {}} />
-      <Input label={'Email'} placeholder={'Enter your email'} onChangeText={() => {}} />
-      <Text>Home Screen</Text>
+      <ScreenHeader title="Member List" />
+      <Text>Member Screen</Text>
       <Member
         useId={1}
         uri={require('../../assets/images/mum.png')}
@@ -30,14 +28,7 @@ const Home = () => {
         familyName={'Smith'}
         onPress={(id) => { console.log('Pressed member with id:', id); }}
       />
-      <Message
-        useId={1}
-        uri={require('../../assets/images/camp.jpg')}
-        badgeTitle={'New'}
-        message={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mattis elementum urna, sed euismod urna semper in. Aenean ac enim interdum, placerat sem id, tempus diam. Cras sodales lorem mauris, ut posuere enim congue iaculis. Donec blandit feugiat finibus. Ut ut est dui. Vestibulum sollicitudin nisl quam. '}
-        onPress={(id) => { console.log('Pressed member with id:', id); }}
-      />
     </View>
   );
 }
-export default Home;
+export default MemberList;

@@ -23,6 +23,11 @@ const style = StyleSheet.create({
     fontSize: scaleFontSize(14),
     lineHeight: scaleFontSize(20),
   },
+  title5: {
+    fontFamily: "Scada-Bold",
+    fontSize: scaleFontSize(24),
+    lineHeight: scaleFontSize(16),
+  },
 });
 
 export default style;

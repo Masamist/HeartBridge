@@ -2,6 +2,10 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "assets/fonts/helper.js",
+      "sha1": "c720a8cd8787142a5a4ff5b9fd74c8d61575b01a"
+    },
+    {
       "path": "assets/fonts/Montserrat-Black.ttf",
       "sha1": "e9abe094b65469f6b6a373b543ab7030dc145c7c"
     },
@@ -42,8 +46,8 @@
       "sha1": "550e6e1d992369e97e9f00aa71ae482a6a6326d7"
     },
     {
-      "path": "assets/fonts/VarelaRound-Regular.ttf",
-      "sha1": "c397612514fa2b58e93834b87ec11478359ec12e"
+      "path": "assets/fonts/Scada-Bold.ttf",
+      "sha1": "4311f1f6de27203442822a6bb1d2ba3c820bb815"
     }
   ]
 }

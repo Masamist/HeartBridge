@@ -1,41 +1,38 @@
 import {StyleSheet} from 'react-native';
-import {horizontalScale, verticalScale, scaleFontSize} from '../../assets/styles/scaling';
+import {horizontalScale, verticalScale} from '../../assets/styles/scaling';
 
 const style = StyleSheet.create({
   container: {
     flexDirection: 'row',
   },
-  timeContainer: {
+  leftContainer: {
     width: horizontalScale(80),
     marginTop: verticalScale(20),
     alignItems: 'center',
-
+  },
+  arrowLeft: {
+    position: 'absolute',
+    right: horizontalScale(-2),
+    top: verticalScale(15),
+  },
+  rightContainer: {
+    flex: 1,
+    marginRight: horizontalScale(15),
   },
   messageContainer: {
-    flexDirection: 'collumn',
-    alignItems: 'center',
+    flexDirection: 'column',
     backgroundColor: '#FFF4D9',
     borderRadius: horizontalScale(5),
     paddingVertical: verticalScale(15),
-    position: 'relative',
+    paddingHorizontal: horizontalScale(15),
   },
-  // arrowLeft: {
-  //   position: 'absolute',
-  //   left: -horizontalScale(20),
-  //   top: verticalScale(15),
-  // },
   image: {
-    width: horizontalScale(180),
-    height: verticalScale(120),
+    // width: horizontalScale(180),
+    width: '100%',
+    height: verticalScale(150),
     borderRadius: horizontalScale(5),
     imagePosition: 'center',
-  },
-  txtContainer: {
-    marginHorizontal: horizontalScale(12),
-  },
-  message: {
-    marginTop: verticalScale(10),
-    lineHeight: scaleFontSize(30),
+    marginBottom: verticalScale(10),
   },
 });
 
