@@ -1,15 +1,10 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import { StyleSheet, useColorScheme, View, Text } from 'react-native';
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import {NavigationContainer} from '@react-navigation/native';
+import MainNavigation from './navigation/MainNavigation';
 
 import Home from './screens/Home/Home';
 
@@ -35,7 +30,9 @@ function AppContent() {
         paddingRight: insets.right,
        }} 
       >
-      <Home />
+      <NavigationContainer>
+        <MainNavigation />
+      </NavigationContainer>
     </View>
   );
 }

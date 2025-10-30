@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
+import {Routes} from '../../navigation/Routes';
 
 import ScreenHeader from "../../components/ScreenHeader/ScreenHeader";
 import Header from "../../components/Header/Header";
@@ -13,23 +14,12 @@ import style from "./style";
 import globalStyle from '../../assets/styles/globalStyle';
 import { Screen } from "react-native-screens";
 
-const Home = () => {
+const Home = ({navigation}) => {
   return (
     <View style={[globalStyle.backgroundWhite, globalStyle.flex]}>
       <ScreenHeader title="Daily Diary" />
-      <Header title="Welcome to Home Screen" type={1} />
+      <Button title={'Go to Member List'} onPress={() => navigation.navigate(Routes.MemberList)} />
       <Tab tabId={1} title={'Today'} isInactive={false} onPress={() => {}} />
-      <Input label={'Email'} placeholder={'Enter your email'} onChangeText={() => {}} />
-      <Text>Home Screen</Text>
-      <Member
-        useId={1}
-        uri={require('../../assets/images/mum.png')}
-        badgeTitle={'Admin'}
-        name={'Sarah Smith'}
-        email={'sarah.smith@gmail.com'}
-        familyName={'Smith'}
-        onPress={(id) => { console.log('Pressed member with id:', id); }}
-      />
       <Message
         useId={1}
         uri={require('../../assets/images/camp.jpg')}

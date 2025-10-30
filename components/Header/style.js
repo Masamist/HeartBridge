@@ -4,7 +4,7 @@ import {getFontFamily} from '../../assets/fonts/helper';
 
 const style = StyleSheet.create({
   title1: {
-    fontFamily: getFontFamily('Montserrat', '400'),
+    fontFamily: getFontFamily('Montserrat', '500'),
     fontSize: scaleFontSize(24),
     lineHeight: scaleFontSize(29),
   },

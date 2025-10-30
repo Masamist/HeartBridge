@@ -4,7 +4,7 @@ import {horizontalScale, scaleFontSize, verticalScale} from '../../assets/styles
 
 const style = StyleSheet.create({
   button: {
-    height: verticalScale(45),
+    height: verticalScale(40),
     justifyContent:'center',
     borderRadius: horizontalScale(30)
   },

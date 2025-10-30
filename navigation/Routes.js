@@ -1,4 +1,6 @@
-export const ROUTES = {
+export const Routes = {
+  Login: 'Login',
+  Registration: 'Registration',
   Home: 'Home',
   MemberList: 'MemberList',
 }; 

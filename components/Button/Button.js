@@ -41,7 +41,7 @@ Button.propTypes = {
   title: PropTypes.string.isRequired,
   isDisabled: PropTypes.bool,
   onPress: PropTypes.func,
-  color: PropTypes.number,
+  color: PropTypes.string,
 };
 
 export default Button;

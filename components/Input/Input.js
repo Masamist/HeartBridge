@@ -13,6 +13,7 @@ const Input = props => {
       <Text style={style.label}>{props.label}</Text>
       <TextInput
         placeholder={props.placeholder ? props.placeholder:null}
+        placeholderTextColor="#B2B2B2"
         value={value} 
         style={style.input}
         keyboardType={props.keyboardType ? props.keyboardType:null}
