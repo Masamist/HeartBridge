@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Image } from 'react-native';
+import {View, Image, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import Header from '../Header/Header';
 import UserIcon from '../UerIcon/UserIcon';
@@ -18,17 +18,13 @@ const Message = props => {
         <View style={style.arrowLeft}>
           <ArrowLeft />
         </View>
-        <UserIcon uri={require('../../assets/images/mum.png')} />
-        <Header 
-          title={'3:15pm'} 
-          type={4} 
-          color={'#333333'} 
-        />
-        <Header 
-          title={'NEW'} 
-          type={4} 
-          color={'#EB5757'} 
-        />
+        <View>
+          <UserIcon uri={require('../../assets/images/mum.png')} />
+          <View style={style.timeNewContainer}>
+            <Text style={style.time}>3:15pm</Text>
+            <Text style={style.new}>New</Text>
+          </View>
+        </View>
       </View>
       <View style={style.rightContainer}>
         <Header 

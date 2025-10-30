@@ -5,7 +5,7 @@ import {horizontalScale, scaleFontSize, verticalScale} from '../../assets/styles
 const style = StyleSheet.create({
   tab: {
     backgroundColor: '#F5979D',
-    height: verticalScale(18     ),
+    height: verticalScale(18),
     justifyContent:'center',
   },
   inactiveTab: {

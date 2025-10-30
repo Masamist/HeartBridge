@@ -3,7 +3,7 @@ import { Routes } from './Routes';
 
 import Login from '../screens/Login/Login';
 import Registration from '../screens/Registration/Registration';
-import Home from '../screens/Home/Home';
+import Diary from '../screens/Diary/Diary';
 import MemberList from '../screens/MemberList.js/MemberList';
 
 const Stack = createStackNavigator();
@@ -22,10 +22,10 @@ export const NonAuthenticated = () => {
 export const Authenticated = () => {
   return (
     <Stack.Navigator
-      initialRouteName={Routes.Login}
+      initialRouteName={Routes.Diary}
       screenOptions={{header: () => null, headerShown: false}}
     >
-      <Stack.Screen name={Routes.Home} component={Home} />
+      <Stack.Screen name={Routes.Diary} component={Diary} />
       <Stack.Screen name={Routes.MemberList} component={MemberList} />
     </Stack.Navigator>
 

@@ -18,7 +18,7 @@ const ScreenHeader = props => {
       <Pressable onPress={{}}>
         <CalendarDays color="#828282" size={30} />
       </Pressable>
-      <Pressable onPress={{}}>
+      <Pressable onPress={props.onPress}>
         <Menu color="#828282" size={30} />
       </Pressable> 
     </View>
@@ -28,6 +28,7 @@ const ScreenHeader = props => {
 
 ScreenHeader.propTypes = {
   title: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired,
 };
 
 export default ScreenHeader;

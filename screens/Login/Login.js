@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import {View, ScrollView, Pressable, Image} from 'react-native';
+import {View, Pressable, Image} from 'react-native';
 
 import {loginUser} from '../../api/user';
-//import {logIn} from '../../redux/reducers/User';
+import {logIn} from '../../redux/reducers/User';
 import {Routes} from '../../navigation/Routes';
+import { useDispatch } from 'react-redux';
 
 import Header from '../../components/Header/Header';
 import Input from '../../components/Input/Input';
@@ -17,6 +18,7 @@ const Login = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const dispatch = useDispatch();
 
   return (
     <View style={[globalStyle.backgroundWhite, globalStyle.flex, style.container]}>
@@ -48,7 +50,7 @@ const Login = ({navigation}) => {
                 setError(user.error);
               } else {
                 setError('');
-                //dispatch(logIn(user.data))
+                dispatch(logIn(user.data))
                 navigation.navigate(Routes.Home);
               }
             }}

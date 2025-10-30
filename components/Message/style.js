@@ -1,14 +1,31 @@
 import {StyleSheet} from 'react-native';
 import {horizontalScale, verticalScale} from '../../assets/styles/scaling';
+import { getFontFamily } from '../../assets/fonts/helper';
 
 const style = StyleSheet.create({
   container: {
     flexDirection: 'row',
   },
   leftContainer: {
-    width: horizontalScale(80),
+    width: horizontalScale(60),
     marginTop: verticalScale(20),
+    alignItems: 'flex-start',
+  },
+  timeNewContainer: {
+    marginTop: verticalScale(5),
     alignItems: 'center',
+  },
+  time: {
+    marginTop: verticalScale(-1),
+    fontFamily: getFontFamily('Montserrat', '500'),
+    fontSize: horizontalScale(10),
+    color: '#4F4F4F',
+  },
+  new: {
+    fontFamily: getFontFamily('Montserrat', '700'),
+    fontSize: horizontalScale(12),
+    color: '#EB5757',
+    lineHeight: verticalScale(10),
   },
   arrowLeft: {
     position: 'absolute',
@@ -17,10 +34,10 @@ const style = StyleSheet.create({
   },
   rightContainer: {
     flex: 1,
-    marginRight: horizontalScale(15),
   },
   messageContainer: {
     flexDirection: 'column',
+    width: '100%',
     backgroundColor: '#FFF4D9',
     borderRadius: horizontalScale(5),
     paddingVertical: verticalScale(15),

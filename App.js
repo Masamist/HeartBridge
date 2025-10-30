@@ -13,7 +13,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { persistor } from './redux/store';
 import {checkToken} from './api/user';
 
-function App() {
+const App = () => {
   return (
     <SafeAreaProvider>
       <AppContent />
@@ -21,10 +21,10 @@ function App() {
   );
 }
 
-function AppContent() {
+const AppContent = () => {
   const insets  = useSafeAreaInsets();
-
   const appState = useRef(AppState.currentState)
+
   useEffect(() => {
     const subscription = AppState.addEventListener(
       'change', 
@@ -38,12 +38,13 @@ function AppContent() {
       appState.current = nextAppState
     })
     checkToken();
+    ////Delete this later
     console.log('Application has rendered');
   }, []) 
 
   return (
     <View
-       style={{
+      style={{
         flex: 1,
         paddingTop: insets.top,
         paddingBottom: insets.bottom,
