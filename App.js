@@ -26,6 +26,7 @@ const AppContent = () => {
   const appState = useRef(AppState.currentState)
 
   useEffect(() => {
+      //persistor.purge();
     const subscription = AppState.addEventListener(
       'change', 
       async nextAppState => {

@@ -2,11 +2,13 @@ import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {persistReducer, persistStore} from 'redux-persist';
 import User from './reducers/User';
+import Diaries from './reducers/Diaries'
 // import Categories from './reducers/Categories';
 // import Donations from './reducers/Donations';
 
 const rootReducer = combineReducers({
   user: User,
+  diaries: Diaries,
   // categories: Categories,
   // donations: Donations,
 });

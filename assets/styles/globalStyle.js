@@ -10,6 +10,7 @@ const globalStyle = StyleSheet.create({
     flex: 1,
   },
   outerContainer: {
+    flex: 1,
     paddingHorizontal: horizontalScale(15),
     paddingVertical: verticalScale(12),
   },

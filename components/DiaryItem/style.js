@@ -5,6 +5,7 @@ import { getFontFamily } from '../../assets/fonts/helper';
 const style = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    marginVertical: verticalScale(5),
   },
   leftContainer: {
     width: horizontalScale(60),
@@ -18,7 +19,7 @@ const style = StyleSheet.create({
   time: {
     marginTop: verticalScale(-1),
     fontFamily: getFontFamily('Montserrat', '500'),
-    fontSize: horizontalScale(10),
+    fontSize: horizontalScale(12),
     color: '#4F4F4F',
   },
   new: {

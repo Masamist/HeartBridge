@@ -7,10 +7,10 @@ import UserIcon from '../UerIcon/UserIcon';
 import style from "./style";
 import ArrowLeft from "../ArrowLeft/ArrowLeft";
 
-const Message = props => {
-  const { userId, uri, message, onPress } = props;
+const DiaryItem = props => {
+  const { id, userId, auther, text, image, onPress, timestamp, notification } = props;
   const imageSource =
-    typeof uri === "string" ? { uri } : uri;
+    typeof props.image === "string" ? { image } : image;
 
   return (
     <View style={style.container}>
@@ -21,14 +21,14 @@ const Message = props => {
         <View>
           <UserIcon uri={require('../../assets/images/mum.png')} />
           <View style={style.timeNewContainer}>
-            <Text style={style.time}>3:15pm</Text>
+            <Text style={style.time}>{props.timestamp}</Text>
             <Text style={style.new}>New</Text>
           </View>
         </View>
       </View>
       <View style={style.rightContainer}>
         <Header 
-          title={'Sarah'} 
+          title={props.auther} 
           type={4} 
           color={'#333333'} 
         />
@@ -38,7 +38,7 @@ const Message = props => {
           source={imageSource} 
           style={style.image} />
           <Header 
-            title={props.message} 
+            title={props.text} 
             type={4} 
             color={'#828282'}
           />
@@ -48,18 +48,22 @@ const Message = props => {
   )
 }
 
-Message.defaultProps = {
+DiaryItem.defaultProps = {
   onPress: () => {},
 }
 
-Message.propTypes = {
+DiaryItem.propTypes = {
+  id:PropTypes.number.required,
   userId: PropTypes.number.isRequired,
-  uri: PropTypes.oneOfType([
+  auther: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  image: PropTypes.oneOfType([
     PropTypes.string, // remote URL
     PropTypes.number, // local require()
   ]).isRequired,
-  message: PropTypes.string.isRequired,
+  timestamp: PropTypes.string.isRequired,
+  notification: PropTypes.bool.isRequired,
   onPress: PropTypes.func,
 }
 
-export default Message; 
+export default DiaryItem; 
