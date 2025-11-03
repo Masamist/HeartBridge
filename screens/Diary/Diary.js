@@ -4,6 +4,7 @@ import { getDailyPosts } from '../../api/diary';
 import { loadDiary } from '../../redux/reducers/Diaries';
 import {Routes} from '../../navigation/Routes';
 import {useDispatch, useSelector} from 'react-redux';
+import {fetchDiaries } from '../../actions/diaryActions'
 
 
 // import { resetToInitialState } from '../../redux/reducers/User';
@@ -24,37 +25,15 @@ const Diary = ({navigation}) => {
   const diaries = useSelector(state => state.diaries)
   //const user = useSelector(state => state.user);
 
-//  const [diaryItems, setDiaryItems] = useState([]);
     const [newDiary, setNewDiary] = useState('')
   
-  // const fetchData = async () => {
-  //     const result = await getDailyPosts();
-  //     if (result.status) {
-  //       dispatch(loadDiary(result.data));
-  //     } else {
-  //       console.log('Error fetching diaries: ', result.error);
-  //     }
-  //     console.log(result)
-  //   };
-
   useEffect(() => {
-    // setDiaryItems(diaries?.items || []);
-    const fetchData = async () => {
-      const result = await getDailyPosts();
-      if (result.status) {
-        dispatch(loadDiary(result.data));
-        console.log(result)
-      } else {
-        console.log('Error fetching diaries: ', result.error);
-      }
-    };
-
-    fetchData();
-    //const items = diaries?.items?.filter(value => value.auther === 'Masami') || [];
-    // const items = diaries?.items?.filter(value =>
-    //   value.timestamp?.includes('today')) || [];
-
+    dispatch(fetchDiaries('fUWECwl5qfKyvjin6JyP'));
   }, [dispatch])
+
+    useEffect(() => {
+    console.log('Updated diaries:', diaries);
+  }, [diaries]);
   
   return (
     <KeyboardAvoidingView
@@ -71,17 +50,17 @@ const Diary = ({navigation}) => {
                 <Tab tabId={1} title={'Today'} isInactive={false} onPress={() => {}} />
               </View>
               <ScrollView contentContainerStyle={{ paddingBottom: 120 }}>
-                {diaries.length === 0 ? (
+                {diaries.items.length === 0 ? (
                 <Text>No Diary Yet...</Text>
                   ) : (
-                    diaries.map(item => (
+                    diaries.items.map(item => (
                       <DiaryItem
                         key={item.id}
                         userId={item.userId}
-                        auther={item.auther}
+                        author={item.author}
                         text={item.text}
                         image={typeof item.image === 'string' ? { uri: item.image } : item.image}
-                        timestamp={item.timestamp}
+                        //timestamp={item.timestamp}
                         notification={item.notification}
                         onPress={() => console.log('Pressed diary with id:', item.id)}
                       />

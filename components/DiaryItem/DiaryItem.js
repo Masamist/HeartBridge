@@ -28,15 +28,17 @@ const DiaryItem = props => {
       </View>
       <View style={style.rightContainer}>
         <Header 
-          title={props.auther} 
+          title={props.author} 
           type={4} 
           color={'#333333'} 
         />
         <View style={style.messageContainer}>
+          {image && 
           <Image 
-          resizeMode={'cover'} 
-          source={imageSource} 
-          style={style.image} />
+            resizeMode={'cover'} 
+            source={imageSource} 
+            style={style.image} />
+            }
           <Header 
             title={props.text} 
             type={4} 
@@ -50,17 +52,18 @@ const DiaryItem = props => {
 
 DiaryItem.defaultProps = {
   onPress: () => {},
+  images: '',
 }
 
 DiaryItem.propTypes = {
   id:PropTypes.number.required,
   userId: PropTypes.number.isRequired,
-  auther: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   image: PropTypes.oneOfType([
     PropTypes.string, // remote URL
     PropTypes.number, // local require()
-  ]).isRequired,
+  ]),
   timestamp: PropTypes.string.isRequired,
   notification: PropTypes.bool.isRequired,
   onPress: PropTypes.func,

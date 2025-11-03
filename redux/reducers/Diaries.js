@@ -36,23 +36,12 @@ const initialState = {
 //   selectedDiary: null,
 //   selectedDiaryInformation: {}
 // };
-// Async thunk to fetch diaries from Firebase
-export const fetchDiaries = createAsyncThunk(
-  'diaries/fetchDiaries',
-  async (_, { rejectWithValue }) => {
-    try {
-      const result = await getDailyPosts();
-      if (result.status) return result.data; // success
-      return rejectWithValue(result.error);   // fail
-    } catch (err) {
-      return rejectWithValue(err.message);
-    }
-  }
-);
 
 const Diaries = createSlice({
   name: 'diaries',
-  initialState,
+  initialState: {
+    items: [],
+  },
   reducers: {
     resetDiaries: () => {
       return initialState;
@@ -71,21 +60,21 @@ const Diaries = createSlice({
       state.selectedDiaryInformation = state.items.find(item => item.id === action.payload);
     }
   },
-   extraReducers: (builder) => {
-    builder
-      .addCase(fetchDiaries.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(fetchDiaries.fulfilled, (state, action) => {
-        state.status = 'succeeded';
-        state.items = action.payload;
-      })
-      .addCase(fetchDiaries.rejected, (state, action) => {
-        state.status = 'failed';
-        state.error = action.payload || action.error.message;
-      });
-  },
+  //  extraReducers: (builder) => {
+  //   builder
+  //     .addCase(fetchDiaries.pending, (state) => {
+  //       state.status = 'loading';
+  //     })
+  //     .addCase(fetchDiaries.fulfilled, (state, action) => {
+  //       state.status = 'succeeded';
+  //       state.items = action.payload;
+  //     })
+  //     .addCase(fetchDiaries.rejected, (state, action) => {
+  //       state.status = 'failed';
+  //       state.error = action.payload || action.error.message;
+  //     });
+  // },
 })
 
-export const { resetDiaries, updateSelectedDiaryId} = Diaries.actions;
+export const { resetDiaries, loadDiary, updateSelectedDiaryId} = Diaries.actions;
 export default Diaries.reducer

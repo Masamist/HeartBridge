@@ -1,9 +1,27 @@
 //import db from '@react-native-firebase/firestore';
-import { getFirestore, collection, addDoc, serverTimestamp, query, orderBy, getDocs, doc, updateDoc, deleteDoc, onSnapshot } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, serverTimestamp, query, orderBy, getDoc, getDocs, doc, updateDoc, deleteDoc, onSnapshot } from 'firebase/firestore';
 import { app } from '../firebaseConfig'; // your Firebase app
 
 const db = getFirestore(app);
 
+export const getDailyPosts = async (familyId) => {
+  try {
+    console.log('Now at getDialyPost starts')
+
+    const familyDocRef = doc(db, 'families', familyId);
+    const familySnap = await getDoc(familyDocRef);
+    const diaryRef = collection(db, 'families', familyId, 'diary');
+    const snapshot = await getDocs(diaryRef);
+    // const postsQuery = query(diaryRef, orderBy('createdAt', 'desc'));
+    // const snapshot = await getDocs(postsQuery);
+    const posts = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    console.log('Now at getDialyPost end:'+ posts)
+    return { status: true, data: posts };   
+  } catch (error) {
+    console.log('Firestore error: ', error);
+    return { status: false, error: error.message };
+  }
+};
 
 export const addDiaryPost = async (userId, text, imageUrl) => {
   try {
@@ -21,16 +39,3 @@ export const addDiaryPost = async (userId, text, imageUrl) => {
   }
 };
 
-export const getDailyPosts = async (familyId) => {
-  try {
-    const diaryRef = collection(db, 'families', 'fUWECwl5qfKyvjin6JyP', 'diary');
-    // const diaryRef = collection(db, 'families', familyId, 'diary');
-    const postsQuery = query(diaryRef, orderBy('createdAt', 'desc'));
-    const snapshot = await getDocs(postsQuery);
-    const posts = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    return { status: true, data: posts };
-  } catch (error) {
-    console.log('Firestore error: ', error);
-    return { status: false, error: error.message };
-  }
-};
