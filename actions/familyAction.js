@@ -1,12 +1,16 @@
-import { getFamilyMembers, getFamilyDiaryPosts } from '../api/family';
+import { getFamilyMembers } from '../api/family';
+import {loadFamilies} from '../redux/reducers/Families'
 
-const loadFamilyData = async (familyId) => {
-
-  const membersResult = await getFamilyMembers(familyId);
-  if (membersResult.status) console.log('Members:', membersResult.data);
-
-  const postsResult = await getFamilyDiaryPosts(familyId);
-  if (postsResult.status) console.log('Diary Posts:', postsResult.data);
-};
-
-export default loadFamilyData;
+export const fetchFamilies = (familyId) => async (dispatch) =>{
+  try {
+    const result = await getFamilyMembers(familyId);
+    if (result.status) {
+      dispatch(loadFamilies(result.data));
+      console.log('Family Members:', result.data)
+    } else {
+      console.error('Error fetching Family List:', result.error);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}

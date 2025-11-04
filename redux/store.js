@@ -3,12 +3,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {persistReducer, persistStore} from 'redux-persist';
 import User from './reducers/User';
 import Diaries from './reducers/Diaries'
+import Families from './reducers/Families'
 // import Categories from './reducers/Categories';
 // import Donations from './reducers/Donations';
 
 const rootReducer = combineReducers({
   user: User,
   diaries: Diaries,
+  families: Families,
   // categories: Categories,
   // donations: Donations,
 });

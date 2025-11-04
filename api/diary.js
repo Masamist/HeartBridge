@@ -6,8 +6,6 @@ const db = getFirestore(app);
 
 export const getDailyPosts = async (familyId) => {
   try {
-    console.log('Now at getDialyPost starts')
-
     const familyDocRef = doc(db, 'families', familyId);
     const familySnap = await getDoc(familyDocRef);
     const diaryRef = collection(db, 'families', familyId, 'diary');
@@ -15,10 +13,10 @@ export const getDailyPosts = async (familyId) => {
     // const postsQuery = query(diaryRef, orderBy('createdAt', 'desc'));
     // const snapshot = await getDocs(postsQuery);
     const posts = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    console.log('Now at getDialyPost end:'+ posts)
+    //console.log('Now at getDialyPost end:'+ posts)
     return { status: true, data: posts };   
   } catch (error) {
-    console.log('Firestore error: ', error);
+   // console.log('Firestore error: ', error);
     return { status: false, error: error.message };
   }
 };

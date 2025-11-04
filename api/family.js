@@ -18,11 +18,11 @@ export const getFamilyMembers = async (familyId) => {
     }
 
     const familyData = familySnap.data();
-    console.log('Family doc exists?', familyData);
+    //console.log('Family doc exists?', familyData);
 
     // 2. Get member IDs array
     const memberIds = familyData.members || [];
-    console.log('Member IDs:', memberIds);
+    //console.log('Member IDs:', memberIds);
 
     // 3. Fetch member details from users collection
     const memberPromises = memberIds.map(async (userId) => {
@@ -42,7 +42,7 @@ export const getFamilyMembers = async (familyId) => {
     });
 
     const members = (await Promise.all(memberPromises)).filter(Boolean);
-    console.log('Fetched members:', members);
+    //console.log('Fetched members:', members);
 
     return { status: true, data: members };
 
