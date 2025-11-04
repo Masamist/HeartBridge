@@ -5,6 +5,7 @@ import { loadDiary } from '../../redux/reducers/Diaries';
 import {Routes} from '../../navigation/Routes';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchDiaries } from '../../actions/diaryActions'
+import {logout} from '../../actions/logoutAction'
 
 
 // import { resetToInitialState } from '../../redux/reducers/User';
@@ -45,7 +46,10 @@ const Diary = ({navigation}) => {
           <View style={style.containerRelative}>
             
             <View style={style.diaryContainer}>
-              <ScreenHeader title="Diary" onPress={() => navigation.navigate(Routes.MemberList)} />
+              <ScreenHeader 
+                title="Diary" 
+                onPress={() => navigation.navigate(Routes.MemberList)}
+                onPressLogout={() => logout(dispatch) } />
               <View style={style.tab}>
                 <Tab tabId={1} title={'Today'} isInactive={false} onPress={() => {}} />
               </View>

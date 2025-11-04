@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Header from '../Header/Header';
 import { CalendarDays } from 'lucide-react-native';
 import { Menu } from 'lucide-react-native';
+import { LogOut } from 'lucide-react-native';
 
 import style from './style';
 
@@ -18,6 +19,9 @@ const ScreenHeader = props => {
       <Pressable onPress={{}}>
         <CalendarDays color="#828282" size={30} />
       </Pressable>
+      <Pressable onPress={props.onPressLogout}>
+        <LogOut color="#828282" size={30} />
+      </Pressable> 
       <Pressable onPress={props.onPress}>
         <Menu color="#828282" size={30} />
       </Pressable> 
@@ -29,6 +33,7 @@ const ScreenHeader = props => {
 ScreenHeader.propTypes = {
   title: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
+  onPressLogout: PropTypes.func.isRequired,
 };
 
 export default ScreenHeader;

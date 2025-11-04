@@ -65,7 +65,19 @@ export const loginUser = async (email, password) => {
 };
 
 export const logOut = async () => {
-  await auth().signOut();
+  
+  if (!auth.currentUser) {
+    console.warn('No user currently signed in. Skipping Firebase logout.');
+    return;
+  }
+  //await auth().signOut();
+  try {
+    await auth().signOut(auth);
+    console.log('User logged out successfully');
+  } catch (error) {
+    console.error('Logout failed:', error);
+  }
+  
 };
 
 export const checkToken = async () => {
