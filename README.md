@@ -1,10 +1,50 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 💖 HeartBridge
 
-# Getting Started
+HeartBridge is a mobile application designed to connect family members through shared digital diary entries. Built with **React Native**, it enables users to post, view, and manage daily updates in a secure, family-based environment. The project demonstrates the application of the **MVVM architecture**, **Redux state management**, and **Firebase** integration for authentication and real-time data synchronization.
+
+---
+
+## 📘 About the Project
+
+HeartBridge was developed to strengthen family communication by allowing members to share thoughts, photos, and updates in a private space.  
+Key features include:
+
+- 🔐 **User Authentication** using Firebase Authentication  
+- 📅 **Diary Management** for viewing and posting daily entries  
+- 👨‍👩‍👧 **Family-based Access** via Firestore collections  
+- 🧩 **MVVM Architecture** for clean separation of concerns  
+- ⚛️ **Redux Integration** for reliable state management  
+
+Future updates will include diary search by date, push notifications, and image uploads via Firebase Storage.
+
+---
+
+## 🛠️ Built With
+
+- **React Native CLI**
+- **Redux Toolkit**
+- **Firebase (Firestore & Authentication)**
+- **JavaScript (ES6+)**
+- **Node.js**
+- **Android Studio / Emulator**
+
+---
+
+## ⚙️ How to Build and Run
+
+### Prerequisites
+
+Ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [React Native CLI](https://reactnative.dev/docs/environment-setup)
+- [Android Studio](https://developer.android.com/studio)
+- A connected **Android Emulator** or **physical device**
+- A valid **Firebase project** (with Firestore and Authentication enabled)
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
-## Step 1: Start Metro
+### Step 1: Start Metro
 
 First, you will need to run **Metro**, the JavaScript build tool for React Native.
 
@@ -18,11 +58,11 @@ npm start
 yarn start
 ```
 
-## Step 2: Build and run your app
+### Step 2: Build and run your app
 
 With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
 
-### Android
+#### Android
 
 ```sh
 # Using npm
@@ -32,7 +72,7 @@ npm run android
 yarn android
 ```
 
-### iOS
+#### iOS
 
 For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
 
@@ -62,7 +102,7 @@ If everything is set up correctly, you should see your new app running in the An
 
 This is one way to run your app — you can also build it directly from Android Studio or Xcode.
 
-## Step 3: Modify your app
+### Step 3: Modify your app
 
 Now that you have successfully run the app, let's make changes!
 
@@ -73,20 +113,20 @@ When you want to forcefully reload, for example to reset the state of your app, 
 - **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
 - **iOS**: Press <kbd>R</kbd> in iOS Simulator.
 
-## Congratulations! :tada:
+### Congratulations! :tada:
 
 You've successfully run and modified your React Native App. :partying_face:
 
-### Now what?
+#### Now what?
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
 - If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
 
-# Troubleshooting
+## Troubleshooting
 
 If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
 
-# Learn More
+## Learn More
 
 To learn more about React Native, take a look at the following resources:
 
