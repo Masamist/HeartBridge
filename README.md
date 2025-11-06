@@ -44,9 +44,16 @@ Ensure you have the following installed:
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
-### Step 1: Start Metro
+### Step 1: Install Dependencies and Start Metro
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+Before running the app, install all required Node packages defined in the `package.json` file.  
+This ensures all project dependencies are properly configured.
+
+```bash
+# Install dependencies
+npm install
+
+Then, you will need to run **Metro**, the JavaScript build tool for React Native.
 
 To start the Metro dev server, run the following command from the root of your React Native project:
 
